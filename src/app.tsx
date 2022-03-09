@@ -44,7 +44,7 @@ export function App() {
                 )}
                 {mode === 'radians' && (
                     <RadiansClock
-                        h={18 % 12}
+                        h={now.getHours() % 12}
                         m={now.getMinutes()}
                         s={now.getSeconds()}
                     />
