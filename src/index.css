@@ -1,0 +1,126 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: #fafafa;
+  font-family: 'Poppins', 'Helvetica Neue', arial, sans-serif;
+  font-weight: 400;
+  color: #444;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 0;
+}
+
+a {
+  color: #ddd;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #13092b;
+  color: #f9027a;
+  font-size: 4.5vmax;
+}
+
+.switch-bar {
+  border: 2px solid #f9027a;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+}
+
+.switch-item {
+  font-size: 1.5vmax;
+  padding: .5vmax;
+  background: none;
+  color: #f9027a;
+  border: none;
+  border-right: 2px solid #f9027a;
+}
+
+.switch-item:first-child {
+  border-top-left-radius: 999px;
+  border-bottom-left-radius: 999px;
+}
+
+.switch-item:last-child {
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+  border: none;
+}
+
+.switch-item:hover {
+  backdrop-filter: brightness(2);
+}
+
+.switch-item.selected {
+  background-color: #f9027a;
+  color: #13092b;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: rgba(0, 0, 0, .25);
+}
+
+.modal {
+  font-size: 1rem;
+  background-color: #13092b;
+  border-radius: 16px;
+  border: 2px solid #f9027a;
+  max-width: 720px;
+  padding: 16px;
+}
+
+.button {
+  font-size: 1.25em;
+  padding: 8px;
+  border-radius: 8px;
+  background: none;
+  color: #f9027a;
+  border: 2px solid #f9027a;
+}
+
+.button:hover {
+  backdrop-filter: brightness(2);
+}
+
+.about-button {
+  color: #bb3e7b;
+  background: rgba(255, 255, 255, .25);
+  border-radius: 50%;
+  width: calc(1.5vmax + 16px);
+  height: calc(1.5vmax + 16px);
+  border: none;
+  font-size: 1.5vmax;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+}
+
+.about-button:hover {
+  color: #f9027a;
+  border: solid 2px #f9027a
+}
