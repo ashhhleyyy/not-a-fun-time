@@ -3,4 +3,4 @@ import { App } from './app';
 import './index.css';
 import '@fontsource/poppins';
 
-render(<App />, document.getElementById('app')!)
+render(<App />, document.getElementById('app')!);
