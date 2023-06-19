@@ -1,3 +1,8 @@
+:root {
+    --background: #13092b;
+    --foreground: #f9027a;
+}
+
 html,
 body {
     height: 100%;
@@ -31,13 +36,13 @@ a {
     justify-content: center;
     height: 100vh;
     text-align: center;
-    background-color: #13092b;
-    color: #f9027a;
+    background-color: var(--background);
+    color: var(--foreground);
     font-size: 4.5vmax;
 }
 
 .switch-bar {
-    border: 2px solid #f9027a;
+    border: 2px solid var(--foreground);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -49,9 +54,9 @@ a {
     font-size: 1.5vmax;
     padding: 0.5vmax;
     background: none;
-    color: #f9027a;
+    color: var(--foreground);
     border: none;
-    border-right: 2px solid #f9027a;
+    border-right: 2px solid var(--foreground);
 }
 
 .switch-item:first-child {
@@ -70,8 +75,8 @@ a {
 }
 
 .switch-item.selected {
-    background-color: #f9027a;
-    color: #13092b;
+    background-color: var(--foreground);
+    color: var(--background);
 }
 
 .modal-container {
@@ -87,9 +92,9 @@ a {
 
 .modal {
     font-size: 1rem;
-    background-color: #13092b;
+    background-color: var(--background);
     border-radius: 16px;
-    border: 2px solid #f9027a;
+    border: 2px solid var(--foreground);
     max-width: 720px;
     padding: 16px;
 }
@@ -99,8 +104,8 @@ a {
     padding: 8px;
     border-radius: 8px;
     background: none;
-    color: #f9027a;
-    border: 2px solid #f9027a;
+    color: var(--foreground);
+    border: 2px solid var(--foreground);
 }
 
 .button:hover {
@@ -121,6 +126,6 @@ a {
 }
 
 .about-button:hover {
-    color: #f9027a;
-    border: solid 2px #f9027a;
+    color: var(--foreground);
+    border: solid 2px var(--foreground);
 }

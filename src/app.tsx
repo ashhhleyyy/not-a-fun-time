@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'preact/hooks';
 import { AboutModal } from './about';
 
-export function App() {
+export function App({ forceMode }: { forceMode: ClockMode | null; }) {
     const [now, setNow] = useState(new Date());
-    const [mode, setMode] = useState<ClockMode>('normal');
+    const [mode, setMode] = useState<ClockMode>(forceMode || 'normal');
 
     const [showAbout, setShowAbout] = useState(false);
 
@@ -13,9 +13,11 @@ export function App() {
     }
 
     useEffect(() => {
-        const storedMode = window.localStorage.getItem('mode');
-        if (storedMode) {
-            setMode(storedMode as ClockMode);
+        if (!forceMode) {
+            const storedMode = window.localStorage.getItem('mode');
+            if (storedMode) {
+                setMode(storedMode as ClockMode);
+            }
         }
     });
 
@@ -51,11 +53,11 @@ export function App() {
                 )}
             </h1>
 
-            <Switch mode={mode} setMode={updateMode} />
+            {!forceMode && <Switch mode={mode} setMode={updateMode} />}
 
-            <button class='about-button' onClick={() => setShowAbout(true)}>
+            {!forceMode && <button class='about-button' onClick={() => setShowAbout(true)}>
                 ?
-            </button>
+            </button>}
 
             {showAbout && <AboutModal close={() => setShowAbout(false)} />}
         </>
@@ -107,7 +109,8 @@ function pad(v: number): string {
     return v.toString().padStart(2, '0');
 }
 
-type ClockMode = 'normal' | 'radians' | 'degrees';
+export const CLOCK_MODES: string[] = [ 'normal', 'radians', 'degrees' ];
+export type ClockMode = 'normal' | 'radians' | 'degrees';
 
 function Switch({
     mode,
