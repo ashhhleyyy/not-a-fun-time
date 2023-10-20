@@ -24,7 +24,7 @@ export function App({ forceMode }: { forceMode: ClockMode | null; }) {
     useEffect(() => {
         const ival = setInterval(() => {
             setNow(new Date());
-        }, 100);
+        }, mode === 'unix' ? 1 : 100);
         return () => clearInterval(ival);
     }, []);
 
@@ -50,6 +50,9 @@ export function App({ forceMode }: { forceMode: ClockMode | null; }) {
                         m={now.getMinutes()}
                         s={now.getSeconds()}
                     />
+                )}
+                {mode === 'unix' && (
+                    {now.getTime()}
                 )}
             </h1>
 
@@ -109,8 +112,8 @@ function pad(v: number): string {
     return v.toString().padStart(2, '0');
 }
 
-export const CLOCK_MODES: string[] = [ 'normal', 'radians', 'degrees' ];
-export type ClockMode = 'normal' | 'radians' | 'degrees';
+export const CLOCK_MODES: string[] = [ 'normal', 'radians', 'degrees', 'unix' ];
+export type ClockMode = 'normal' | 'radians' | 'degrees' | 'unix';
 
 function Switch({
     mode,
@@ -138,6 +141,12 @@ function Switch({
                 onClick={() => setMode('radians')}
             >
                 Radians
+            </button>
+            <button
+                class={'switch-item' + (mode === 'radians' ? ' selected' : '')}
+                onClick={() => setMode('unix')}
+            >
+                Unix
             </button>
         </div>
     );
