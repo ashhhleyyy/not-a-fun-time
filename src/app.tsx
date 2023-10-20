@@ -52,7 +52,7 @@ export function App({ forceMode }: { forceMode: ClockMode | null; }) {
                     />
                 )}
                 {mode === 'unix' && (
-                    {now.getTime()}
+                    <>{now.getTime()}</>
                 )}
             </h1>
 
