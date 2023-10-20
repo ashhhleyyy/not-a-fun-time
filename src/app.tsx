@@ -26,7 +26,7 @@ export function App({ forceMode }: { forceMode: ClockMode | null; }) {
             setNow(new Date());
         }, mode === 'unix' ? 1 : 100);
         return () => clearInterval(ival);
-    }, [unix]);
+    }, [mode]);
 
     return (
         <>
