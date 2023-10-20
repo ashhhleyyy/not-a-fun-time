@@ -26,7 +26,7 @@ export function App({ forceMode }: { forceMode: ClockMode | null; }) {
             setNow(new Date());
         }, mode === 'unix' ? 1 : 100);
         return () => clearInterval(ival);
-    }, []);
+    }, [unix]);
 
     return (
         <>
@@ -143,7 +143,7 @@ function Switch({
                 Radians
             </button>
             <button
-                class={'switch-item' + (mode === 'radians' ? ' selected' : '')}
+                class={'switch-item' + (mode === 'unix' ? ' selected' : '')}
                 onClick={() => setMode('unix')}
             >
                 Unix
